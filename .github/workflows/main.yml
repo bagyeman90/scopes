@@ -28,3 +28,10 @@ jobs:
               with:
                 name: bandit-findings
                 path: bandit-report.json
+    image_scan:
+        name: Run Scout Scan
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
