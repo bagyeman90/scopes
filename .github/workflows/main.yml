@@ -61,5 +61,5 @@ jobs:
                 dockerhub-password: ${{ secrets.REPO_PWD }}
                 command: quickview,cves
                 only-severities: critical,high
-                sa
+                
                 
