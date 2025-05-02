@@ -23,7 +23,7 @@ jobs:
               run: bandit -r -ll -ii . -f json -o bandit-report.json 
 
             - name: Uploading Artifact
-              uses: actions/upload-artifact@v4
+              uses: actions/upload-artifact@v3
               if: always()
               with:
                 name: bandit-findings
@@ -34,18 +34,19 @@ jobs:
 
         steps:
             - name: Checkout code
-              uses: actions/checkout@v3
+              uses: actions/checkout@v2
 
             - name: Set up Docker
               uses: docker-practice/actions-setup-docker@v1
               with:
-                docker_version: '28.1.1'
+                docker_version: '20.10.3'
 
             - name: Build Docker Image
               run: docker build -f Dockerfile -t myapp:latest .
 
             - name: Docker Scan Scout
-              run: curl -fsSL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh -o install-scout.sh
+              run: |
+                curl -fsSL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh -o install-scout.sh
                 sh install-scout.sh
                 
 
