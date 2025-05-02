@@ -55,7 +55,7 @@ jobs:
                  #docker scout cves
                 
             - name: Docker Scout Scan
-              uses: docker/scout-action@v1.0.9
+              uses: docker/scout-action@v1.17.1
               with:
                 dockerhub-user: ${{ vars.REPO_USER }}
                 dockerhub-password: ${{ secrets.REPO_PWD }}
